@@ -1,24 +1,28 @@
-<div class="flex mb-10">
+<div class="flex mb-10" *ngIf="area">
   <div>
-    <img [src]="area?.image" class="h-[280px] w-80 rounded-xl" />
+    <a routerLink="/room/{{ area.id }}">
+      <img [src]="area.image" class="h-[280px] w-80 rounded-xl" />
+    </a>
     <div
       class="relative -top-[260px] left-[280px] cursor-pointer"
-      (click)="toggleLike()"
+      (click)="toggleLike(area.liked)"
     >
-      <ng-icon name="heroHeartSolid" color="gray" size="26"></ng-icon>
+      <ng-icon
+        name="heroHeartSolid"
+        [color]="area.liked === false ? 'gray' : 'red'"
+        size="26"
+      ></ng-icon>
     </div>
     <div class="-mt-2">
       <div class="flex justify-between">
-        <div class="font-semibold">{{ area?.name }}</div>
+        <div class="font-semibold">{{ area.name }}</div>
         <div class="flex items-center gap-1">
-          <ng-icon name="heroStarSolid"></ng-icon>{{ area?.rating }}
+          <ng-icon name="heroStarSolid"></ng-icon>{{ area.rating }}
         </div>
       </div>
-      <div class="text-gray-600">{{ area?.distance }} Kilometers away</div>
-      <div class="text-gray-600">{{ area?.date | date : "dd/MM" }}</div>
-      <div class="font-semibold">
-        {{ area?.price | currency : "INR" }} night
-      </div>
+      <div class="text-gray-600">{{ area.distance }} Kilometers away</div>
+      <div class="text-gray-600">{{ area.date | date : "dd/MM" }}</div>
+      <div class="font-semibold">{{ area.price | currency : "INR" }} night</div>
     </div>
   </div>
 </div>

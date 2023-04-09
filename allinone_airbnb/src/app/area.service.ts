@@ -13,6 +13,10 @@ export class AreaService {
     const areas = of(Areas);
     return areas;
   }
+  getArea(id: number): Observable<Area> {
+    const area = Areas.find((a) => a.id === id)!;
+    return of(area);
+  }
 
   toggleLike(id: number): void {
     for (let i = 0; i < Areas.length; i++) {

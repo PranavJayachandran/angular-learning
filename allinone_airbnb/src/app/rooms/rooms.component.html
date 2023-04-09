@@ -1,0 +1,78 @@
+<div class="pt-28 px-20 mb-10">
+  <div>
+    <div class="text-2xl font-semibold">
+      {{ area?.name }}
+    </div>
+    <div class="font-semibold flex justify-between items-center">
+      <div class="underline">1 review . Vagamon, Kerala, India</div>
+      <div class="flex">
+        <div
+          class="flex items-center justify-center gap-2 hover:bg-gray-100 p-2 rounded-xl cursor-pointer"
+        >
+          <ng-icon name="heroShare" size="20"></ng-icon>
+          <div class="underline">Share</div>
+        </div>
+        <div
+          class="flex items-center justify-center gap-1 hover:bg-gray-100 p-2 rounded-xl cursor-pointer"
+        >
+          <div class="mt-2"><ng-icon name="heroHeart" size="20"></ng-icon></div>
+          <div class="underline">Save</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="h-80 w-full bg-red-100"></div>
+  <div class="mt-10">
+    <div class="flex">
+      <div class="w-8/12 h-[450px] overflow-auto mr-20">
+        <div class="flex justify-between border-b-2 pb-4">
+          <div class="flex flex-col gap-1">
+            <div class="text-2xl font-semibold">Hosted by {{ area?.host }}</div>
+            <div>
+              {{ area?.bedrooms }} bedrooms . {{ area?.bathrooms }} bathrooms
+            </div>
+          </div>
+          <div>
+            <img
+              [src]="area?.hostimage"
+              class="h-16 w-16 rounded-full border"
+            />
+          </div>
+        </div>
+        <div class="border-b-2 pb-6">
+          <div class="mt-6 text-2xl font-semibold mb-2">
+            What this place offers
+          </div>
+          <div *ngFor="let offering of area?.offerings" class="flex flex-col">
+            <app-offering [offering]="offering"></app-offering>
+          </div>
+        </div>
+        <div class="mt-8 text-lg border-b-2 pb-6">
+          <div class="flex text-3xl font-semibold text-[#ff385c] mb-4">
+            air
+            <p class="text-black">cover</p>
+          </div>
+          <div class="">
+            Every booking includes free protection from Host cancellations,
+            listing inaccuraies, and other issues like trouble checking in.
+          </div>
+          <div class="mt-2 underline font-semibold">Learn more</div>
+          <div class="mt-10">
+            Reconnect with nature at this uforgettable escape it a unique and
+            serene experience wit its breathtaking view of the pine forest and
+            direct access to the river. Ther property is surrounded bu lush
+            greenary and the sound of the river creates a peaceful ambiance.
+            Guests can enjoy a moring cup of cofee or a relaxing evening by the
+            river, taking in the beautiful scenary. Guests can also indulge in
+            outdoor activities suc as hiking and fishin in the nearby forest and
+            river.
+          </div>
+        </div>
+      </div>
+      <div class="w-4/12">
+        <app-payout></app-payout>
+      </div>
+    </div>
+  </div>
+  <app-calender></app-calender>
+</div>

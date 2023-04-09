@@ -8,10 +8,10 @@ import { AreaService } from '../area.service';
   styleUrls: ['./area.component.css'],
 })
 export class AreaComponent {
-  @Input() area: Area;
-  toggleLike(): void {
-    this.area.liked = true;
-    console.log(!this.area?.liked);
+  @Input() area: Area | undefined;
+  toggleLike(liked: boolean | undefined): void {
+    this.area = { ...this.area, liked: !liked };
+    console.log(liked, this.area?.liked);
   }
   constructor(private areaService: AreaService) {}
 
